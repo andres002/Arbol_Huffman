@@ -98,8 +98,8 @@ public class ArbolB {
         }else{
             buscarNodo(dato);
             if(encontrado){
-                System.out.println("dato: "+dato+"  nodod: "+encontradoN.dato);
-                System.out.println("datoizq: "+datoIzq +"datoder: "+datoDer);
+               // System.out.println("dato: "+dato+"  nodod: "+encontradoN.dato);
+               // System.out.println("datoizq: "+datoIzq +"datoder: "+datoDer);
                 encontradoN.izq = nuevo;
                 encontradoN.der = nuevo2;
             }
@@ -114,40 +114,45 @@ public class ArbolB {
     }
         
     public void recorrer(Nodo reco){
-        
-          System.out.print(reco.dato + " ");
+          //System.out.print(reco.dato + " ");
+          if(!reco.isLeaf()){
+                  
           if(reco.izq != null){
               camino = camino + "0";
-              preOrder (reco.izq);
-          }else{
-              if(reco.isLeaf()){
-                  guardar(reco,camino);
-              }   
+              recorrer (reco.izq);
           }
+              
+             
+          
           if(reco.der != null){
               camino = camino + "1";
-              preOrder (reco.der);
-          }else{
-              if(reco.isLeaf()){
-                  guardar(reco,camino);
-              }
+              recorrer (reco.der);
           }
+          }else{
+                guardar(reco,camino);
+          }
+          if(camino.length() > 0){
           camino = camino.substring(0,camino.length()-1);
+          }
     }
           
     private void guardar( Nodo reco, String camino){
          String codifi = reco.letra + ":" + camino;
+         System.out.println("codifi++++ " + codifi);
          tCodificaciones[cont] = codifi;
          cont++;
    }
-    
-    
+    public void imprimir(){
+            for (int i = 0; i < tCodificaciones.length; i++) {
+                System.out.println("**"+tCodificaciones[i]);
+        }
+    }
 
         public void setLetra(String letra, int valor){
             buscarNodo(valor);
             if(encontradoNL != null){
                 encontradoNL.letra = letra;
-                System.out.println("insertado");
+               // System.out.println("insertado");
             }
         }
     }

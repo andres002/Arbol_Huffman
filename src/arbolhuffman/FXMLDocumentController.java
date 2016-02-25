@@ -47,6 +47,9 @@ public class FXMLDocumentController implements Initializable {
            TablaF(tf.getTabla());
            
         }
+        Codificacion co = new Codificacion();
+        co.setArbol();
+        
     }
     
     public void TablaF(String [] datos){
@@ -63,8 +66,7 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Codificacion co = new Codificacion();
-        co.setArbol();
+        
     }    
     
 }
