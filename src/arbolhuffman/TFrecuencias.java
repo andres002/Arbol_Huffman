@@ -17,6 +17,7 @@ public class TFrecuencias {
         FileReader f = new FileReader(archivo);
         BufferedReader b = new BufferedReader(f);
         while ((cadena = b.readLine()) != null) {
+            cadena=cadena.toLowerCase();
             this.texto += cadena;
         }
         b.close();

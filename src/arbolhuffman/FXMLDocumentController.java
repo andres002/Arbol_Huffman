@@ -34,12 +34,16 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public void archivo() throws IOException{
+        tabF.setText("");
+        tabL.setText("");
         FileChooser fileCh = new FileChooser();
         fileCh.setTitle("Open");
         fileCh.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("txt", "*.txt")
         );
         files = fileCh.showOpenDialog(stage);
+        tabF.setText("");
+        tabL.setText("");
         if (files != null) {
            tf.calcula(files.getPath());
            TablaF(tf.getTabla());
@@ -48,7 +52,6 @@ public class FXMLDocumentController implements Initializable {
     }
     
     public void TablaF(String [] datos){
-        ObservableList data ;
         for (int i=0; i< datos.length; i++) {
         String y[] = datos[i].split(":");
         String p1 = y[0];
