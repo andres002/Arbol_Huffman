@@ -11,6 +11,7 @@ public class TFrecuencias {
 
     String texto = "";
     String[] datos;
+    public static int Numdatos;
 
     public void leerArchivo(String archivo) throws FileNotFoundException, IOException {
         String cadena;
@@ -52,6 +53,7 @@ public class TFrecuencias {
         tabla.toArray(datos);
 
     }
+    Numdatos = datos.length;
 }
 
 public String [] getTabla(){

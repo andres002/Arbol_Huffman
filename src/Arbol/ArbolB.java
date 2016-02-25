@@ -9,6 +9,9 @@ package Arbol;
  *
  * @author Javier
  */
+
+import static arbolhuffman.TFrecuencias.Numdatos;
+
 public class ArbolB {
 
     class Nodo {
@@ -25,6 +28,10 @@ public class ArbolB {
     Nodo raiz;
     boolean encontrado = false;
     Nodo encontradoN;
+    String camino="";
+    String [] tCodificaciones;
+    int cont = 0;
+    
 
     public ArbolB() {
         raiz = null;
@@ -90,4 +97,40 @@ public class ArbolB {
         }
        
         }
+    
+    public void recorrer(){
+        tCodificaciones = new String [Numdatos];
+        recorrer (raiz);
+        System.out.println();
+    }
+    
+    public void recorrer(Nodo reco){
+        
+          System.out.print(reco.dato + " ");
+          if(reco.izq != null){
+              camino = camino + "0";
+              preOrder (reco.izq);
+          }else{
+              if(reco.isLeaf()){
+                  guardar(reco,camino);
+              }   
+          }
+          if(reco.der != null){
+              camino = camino + "1";
+              preOrder (reco.der);
+          }else{
+              if(reco.isLeaf()){
+                  guardar(reco,camino);
+              }
+          }
+          camino = camino.substring(0,camino.length()-1);
+    }
+          
+    private void guardar( Nodo reco, String camino){
+         String codifi = reco.letra + ":" + camino;
+         tCodificaciones[cont] = codifi;
+         cont++;
+   }
+    
+    
     }
