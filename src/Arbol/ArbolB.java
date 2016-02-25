@@ -17,9 +17,9 @@ public class ArbolB {
     class Nodo {
 
         int dato;
-        String letra;
+        String letra = null;
         int frecuencia;
-        Nodo izq, der;
+        Nodo izq = null, der=null;
 
         public boolean isLeaf() {
             return izq == null && der == null;
@@ -28,10 +28,13 @@ public class ArbolB {
     Nodo raiz;
     boolean encontrado = false;
     Nodo encontradoN;
+
     String camino="";
     String [] tCodificaciones;
     int cont = 0;
     
+
+    Nodo encontradoNL; //almacena el nodo para insertarle una letra 
 
     public ArbolB() {
         raiz = null;
@@ -41,7 +44,9 @@ public class ArbolB {
         if(reco.dato == dato && reco.isLeaf() && !encontrado){
             encontrado = true;
             encontradoN = reco;
-            
+        }
+        if(reco.dato == dato && reco.isLeaf() && reco.letra == null){
+            encontradoNL = reco;
         }
             
         buscarNodo(reco.izq,dato);
@@ -53,13 +58,17 @@ public class ArbolB {
     public void buscarNodo (int dato){
       encontrado = false;
       encontradoN = null;
+      encontradoNL = null;
       buscarNodo (raiz,dato);
     }
 
      private void preOrder (Nodo reco){
       if (reco != null)
       { 
-        System.out.println(reco.dato);
+        System.out.print(reco.dato);
+        if(reco.letra != null)
+              System.out.print("--- "+reco.letra);
+          System.out.println("");
         preOrder (reco.izq);
         preOrder (reco.der);
       }
@@ -88,7 +97,7 @@ public class ArbolB {
             raiz = base;
         }else{
             buscarNodo(dato);
-            if(encontrado && encontradoN != null){
+            if(encontrado){
                 System.out.println("dato: "+dato+"  nodod: "+encontradoN.dato);
                 System.out.println("datoizq: "+datoIzq +"datoder: "+datoDer);
                 encontradoN.izq = nuevo;
@@ -97,13 +106,13 @@ public class ArbolB {
         }
        
         }
-    
+
     public void recorrer(){
         tCodificaciones = new String [Numdatos];
         recorrer (raiz);
         System.out.println();
     }
-    
+        
     public void recorrer(Nodo reco){
         
           System.out.print(reco.dato + " ");
@@ -133,4 +142,12 @@ public class ArbolB {
    }
     
     
+
+        public void setLetra(String letra, int valor){
+            buscarNodo(valor);
+            if(encontradoNL != null){
+                encontradoNL.letra = letra;
+                System.out.println("insertado");
+            }
+        }
     }

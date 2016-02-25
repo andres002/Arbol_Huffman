@@ -37,6 +37,7 @@ public class Codificacion {
         return new String[2];
     }
     public void setArbol(){
+        //String[] tablaA = {"1:1:2","1:1:2","1:1:2","1:1:2","2:2:4","2:2:4","2:2:4","3:3:6","3:4:7","4:4:8","4:4:8","6:7:13","8:8:16","13:16:29"};
         String[] tablaA = {"1:1:2","1:1:2","1:1:2","1:1:2","2:2:4","2:2:4","2:2:4","3:4:7","4:4:8","4:5:9","6:7:13","8:9:17","13:17:30"};
         for (int i = tablaA.length-1; i >= 0; i--) {
             String[] aux = tablaA[i].split(":");
@@ -44,6 +45,13 @@ public class Codificacion {
             int datoIzq = Integer.parseInt(aux[0]);
             int datoDer = Integer.parseInt(aux[1]);            
             ar.insertar(dato, datoIzq, datoDer);
+        }
+        String[] tablaF = {"j:2","a:2","v:1","i:1","e:6","r:5","d:1","s:3","u:1","f:1","l:1","o:1","h:1","** :4",};
+         for (int i = 0; i < tablaF.length; i++) {
+            String[] aux = tablaF[i].split(":");
+            int frecuencia = Integer.parseInt(aux[1]);  
+            
+            ar.setLetra(aux[0], frecuencia);
         }
         ar.preOrder();
     }
