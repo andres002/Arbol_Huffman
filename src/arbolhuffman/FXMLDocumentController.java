@@ -5,26 +5,59 @@
  */
 package arbolhuffman;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextArea;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  *
  * @author Javier
  */
 public class FXMLDocumentController implements Initializable {
+    @FXML
+    private File files;
+    private Stage stage;
+    
+    @FXML TextArea tabF, tabL, tabLC, tabC, tabR;
+    
+    TFrecuencias tf = new TFrecuencias();
+    
     
     @FXML
-    private Label label;
+    public void archivo() throws IOException{
+        FileChooser fileCh = new FileChooser();
+        fileCh.setTitle("Open");
+        fileCh.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("txt", "*.txt")
+        );
+        files = fileCh.showOpenDialog(stage);
+        if (files != null) {
+           tf.calcula(files.getPath());
+           TablaF(tf.getTabla());
+           
+        }
+    }
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        Codificacion co = new Codificacion();
-        co.setArbol();
+    public void TablaF(String [] datos){
+        ObservableList data ;
+        for (int i=0; i< datos.length; i++) {
+        String y[] = datos[i].split(":");
+        String p1 = y[0];
+        String p2 = y[1];
+        System.out.println(p1);
+        tabF.setText(tabF.getText()+p1+"\n");
+        System.out.println(p2);
+        tabL.setText(tabL.getText()+p2+"\n");
+    }
     }
     
     @Override
