@@ -42,8 +42,6 @@ public class FXMLDocumentController implements Initializable {
                 new FileChooser.ExtensionFilter("txt", "*.txt")
         );
         files = fileCh.showOpenDialog(stage);
-        tabF.setText("");
-        tabL.setText("");
         if (files != null) {
            tf.calcula(files.getPath());
            TablaF(tf.getTabla());
