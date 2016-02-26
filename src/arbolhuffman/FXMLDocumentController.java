@@ -17,23 +17,26 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import leerArchivo.AllLines;
 
 /**
  *
  * @author Javier
  */
 public class FXMLDocumentController implements Initializable {
+
+    public static String[] datos;
     @FXML
     private File files;
     private Stage stage;
-    
-    @FXML TextArea tabF, tabL, tabLC, tabC, tabR;
-    
-    TFrecuencias tf = new TFrecuencias();
-    
-    
+
     @FXML
-    public void archivo() throws IOException{
+    TextArea tabF, tabL, tabLC, tabC, tabR;
+
+    TFrecuencias tf = new TFrecuencias();
+
+    @FXML
+    public void archivo() throws IOException {
         tabF.setText("");
         tabL.setText("");
         FileChooser fileCh = new FileChooser();
@@ -43,30 +46,50 @@ public class FXMLDocumentController implements Initializable {
         );
         files = fileCh.showOpenDialog(stage);
         if (files != null) {
-           tf.calcula(files.getPath());
-           TablaF(tf.getTabla());
-           
+            tf.calcula(files.getPath());
+            TablaF(tf.getTabla());
+
         }
         Codificacion co = new Codificacion();
         co.setArbol();
+
+    }
+
+    @FXML
+    public void leerDatos() {
+        FileChooser fileCh = new FileChooser();
+        fileCh.setTitle("Open");
+        fileCh.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("txt", "*.txt")
+        );
+        files = fileCh.showOpenDialog(stage);
+        if (files != null) {
+            AllLines a = new AllLines(files.getPath());
+            System.out.println("path--" + files.getPath());
+            int lineas = a.getLines();
+            System.out.println("lineas---" + lineas);
+            datos = a.AllLines(lineas);
+            //datosL = new String[2];
+
+        }
         
     }
-    
-    public void TablaF(String [] datos){
-        for (int i=0; i< datos.length; i++) {
-        String y[] = datos[i].split(":");
-        String p1 = y[0];
-        String p2 = y[1];
-        System.out.println(p1);
-        tabF.setText(tabF.getText()+p1+"\n");
-        System.out.println(p2);
-        tabL.setText(tabL.getText()+p2+"\n");
+
+    public void TablaF(String[] datos) {
+        for (int i = 0; i < datos.length; i++) {
+            String y[] = datos[i].split(":");
+            String p1 = y[0];
+            String p2 = y[1];
+            System.out.println(p1);
+            tabF.setText(tabF.getText() + p1 + "\n");
+            System.out.println(p2);
+            tabL.setText(tabL.getText() + p2 + "\n");
+        }
     }
-    }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
-    
+
+    }
+
 }
