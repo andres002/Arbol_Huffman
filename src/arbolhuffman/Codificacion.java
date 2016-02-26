@@ -25,10 +25,37 @@ public class Codificacion {
     }
     
     public String[] getRegistroReemplazo(int[] tablaFrecuencias){
-        //sumar de par en par;
-        //ordenar despues de cada suma
-        //guardar sumas en un arreglo con el formato: [numero1:numero2:resultado]
-         return new String[2]; //regresar arreglo de registro
+         Ordenar d = new Ordenar();
+        boolean band = true;
+        int operaciones = 0;
+        String retorno [] = new String[tablaFrecuencias.length-1];
+	tablaFrecuencias = d.burbuja(tablaFrecuencias);
+	int auxiliar [] = new int[tablaFrecuencias.length];
+        while (band) {
+			tablaFrecuencias=d.burbuja(tablaFrecuencias);
+			int a = tablaFrecuencias[operaciones];
+			 String x = String.valueOf(a);
+		
+			int b = tablaFrecuencias[operaciones+1];
+			 String y = String.valueOf(b);
+		
+			int suma = a+b;
+			 String z = String.valueOf(suma);
+			 String union = x+":"+y+":"+z;
+			 retorno[operaciones]=union;
+		
+			auxiliar[operaciones]=suma;
+			tablaFrecuencias[0]=suma;
+		
+			operaciones++;
+			if(operaciones==tablaFrecuencias.length-1){
+				band=false;
+			}
+		
+			
+		}
+       
+         return  retorno;
     }
     
     public String[] getCodificaciones(){
