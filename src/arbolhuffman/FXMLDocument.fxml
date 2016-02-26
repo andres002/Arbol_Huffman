@@ -12,7 +12,12 @@
         <menus>
           <Menu mnemonicParsing="false" text="Archivo">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#archivo" text="Leer Archivo" />
+                  <Menu mnemonicParsing="false" text="Leer archivo">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#leerDatos" text="leer archivo a decodificar" />
+                    <MenuItem mnemonicParsing="false" onAction="#archivo" text="leer archivo a codificar" />
+                    </items>
+                  </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Acerca de">
