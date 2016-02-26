@@ -29,7 +29,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private File files;
     private Stage stage;
-
+    int[] frecuecias;
     @FXML TextArea tabF, tabL, tabLC, tabC, tabR,txtArbol;
     TFrecuencias tf = new TFrecuencias();
     
@@ -46,11 +46,14 @@ public class FXMLDocumentController implements Initializable {
         files = fileCh.showOpenDialog(stage);
         if (files != null) {
             tf.calcula(files.getPath());
+           frecuecias = new int[ tf.getTabla().length];
             TablaF(tf.getTabla());
 
         }
         Codificacion co = new Codificacion();
-        co.setArbol();
+        
+        co.setArbol(co.getRegistroReemplazo(frecuecias),tf.getTabla());
+        
 
         txtArbol.setText(co.getArbol());
        
@@ -83,8 +86,9 @@ public class FXMLDocumentController implements Initializable {
     public void TablaF(String[] datos) {
         for (int i = 0; i < datos.length; i++) {
             String y[] = datos[i].split(":");
-            String p1 = y[0];
-            String p2 = y[1];
+            String p1 = y[0]; //numero
+            frecuecias[i] = Integer.parseInt(y[0]);
+            String p2 = y[1]; //letra
             System.out.println(p1);
             tabF.setText(tabF.getText() + p1 + "\n");
             System.out.println(p2);
