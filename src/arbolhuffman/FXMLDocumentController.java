@@ -29,13 +29,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private File files;
     private Stage stage;
-    
+
     @FXML TextArea tabF, tabL, tabLC, tabC, tabR,txtArbol;
     TFrecuencias tf = new TFrecuencias();
     
-    
+
     @FXML
-    public void archivo() throws IOException{
+    public void archivo() throws IOException {
         tabF.setText("");
         tabL.setText("");
         FileChooser fileCh = new FileChooser();
@@ -45,17 +45,19 @@ public class FXMLDocumentController implements Initializable {
         );
         files = fileCh.showOpenDialog(stage);
         if (files != null) {
-           tf.calcula(files.getPath());
-           TablaF(tf.getTabla());
-           
+            tf.calcula(files.getPath());
+            TablaF(tf.getTabla());
+
         }
         Codificacion co = new Codificacion();
         co.setArbol();
+
         txtArbol.setText(co.getArbol());
        
-        
+
+
     }
-    
+
     @FXML
     public void leerDatos() {
         FileChooser fileCh = new FileChooser();
@@ -74,23 +76,26 @@ public class FXMLDocumentController implements Initializable {
 
         }
 
+        
     }
+
 
     public void TablaF(String[] datos) {
         for (int i = 0; i < datos.length; i++) {
-        String y[] = datos[i].split(":");
-        String p1 = y[0];
-        String p2 = y[1];
-        System.out.println(p1);
-        tabF.setText(tabF.getText()+p1+"\n");
-        System.out.println(p2);
-        tabL.setText(tabL.getText()+p2+"\n");
+            String y[] = datos[i].split(":");
+            String p1 = y[0];
+            String p2 = y[1];
+            System.out.println(p1);
+            tabF.setText(tabF.getText() + p1 + "\n");
+            System.out.println(p2);
+            tabL.setText(tabL.getText() + p2 + "\n");
+        }
+
     }
-    }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
-    
+
+    }
+
 }
