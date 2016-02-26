@@ -30,7 +30,7 @@ public class ArbolB {
     boolean encontrado = false;
     Nodo encontradoN;
     String aCodificado = "";
-
+    String arbol = ""; 
     String camino = "";
     String[] tCodificaciones;
     int cont = 0;
@@ -72,18 +72,28 @@ public class ArbolB {
             System.out.print(reco.dato);
             if (reco.letra != null) {
                 aCodificado += "1";
+                
                  setArbolC(reco.letra);
                 System.out.print("--- " + reco.letra);
             }
+                arbol += "( ";
+                arbol += reco.dato+" ";
+            
+            
             System.out.println("");
             preOrder(reco.izq);
             preOrder(reco.der);
+           arbol +=")";
         }
     }
-
+    public String getArbol(){
+        return arbol;
+    }
     public void preOrder() {
+       
         preOrder(raiz);
         System.out.println();
+        System.out.println(arbol);
     }
 
     public void insertar(int dato, int datoIzq, int datoDer) {

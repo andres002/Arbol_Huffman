@@ -59,5 +59,8 @@ public class Codificacion {
         ar.preOrder();
         System.out.println(ar.getArbolCodificado());
     }
+    public String getArbol(){
+        return ar.getArbol();
+    }
     
 }

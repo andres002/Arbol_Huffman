@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arbolhuffman.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arbolhuffman.FXMLDocumentController">
    <children>
       <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -62,7 +62,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <TextArea editable="false" layoutX="22.0" layoutY="319.0" prefHeight="65.0" prefWidth="662.0" />
+      <TextArea fx:id="txtArbol" editable="false" layoutX="22.0" layoutY="319.0" prefHeight="65.0" prefWidth="662.0" wrapText="true" />
       <Text layoutX="282.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Representación del Árbol">
          <font>
             <Font name="System Bold" size="12.0" />
