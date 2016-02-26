@@ -17,12 +17,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import leerArchivo.AllLines;
 
 /**
  *
  * @author Javier
  */
 public class FXMLDocumentController implements Initializable {
+
+    public static String[] datos;
     @FXML
     private File files;
     private Stage stage;
@@ -53,8 +56,28 @@ public class FXMLDocumentController implements Initializable {
         
     }
     
-    public void TablaF(String [] datos){
-        for (int i=0; i< datos.length; i++) {
+    @FXML
+    public void leerDatos() {
+        FileChooser fileCh = new FileChooser();
+        fileCh.setTitle("Open");
+        fileCh.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("txt", "*.txt")
+        );
+        files = fileCh.showOpenDialog(stage);
+        if (files != null) {
+            AllLines a = new AllLines(files.getPath());
+            System.out.println("path--" + files.getPath());
+            int lineas = a.getLines();
+            System.out.println("lineas---" + lineas);
+            datos = a.AllLines(lineas);
+            //datosL = new String[2];
+
+        }
+
+    }
+
+    public void TablaF(String[] datos) {
+        for (int i = 0; i < datos.length; i++) {
         String y[] = datos[i].split(":");
         String p1 = y[0];
         String p2 = y[1];
