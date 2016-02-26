@@ -27,8 +27,7 @@ public class FXMLDocumentController implements Initializable {
     private File files;
     private Stage stage;
     
-    @FXML TextArea tabF, tabL, tabLC, tabC, tabR;
-    
+    @FXML TextArea tabF, tabL, tabLC, tabC, tabR,txtArbol;
     TFrecuencias tf = new TFrecuencias();
     
     
@@ -49,6 +48,8 @@ public class FXMLDocumentController implements Initializable {
         }
         Codificacion co = new Codificacion();
         co.setArbol();
+        txtArbol.setText(co.getArbol());
+       
         
     }
     
