@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import leerArchivo.AllLines;
@@ -31,6 +32,7 @@ public class FXMLDocumentController implements Initializable {
     private Stage stage;
     int[] frecuecias;
     @FXML TextArea tabF, tabL, tabLC, tabC, tabR,txtArbol;
+    @FXML AnchorPane codificar, decodificar, inicio;
     TFrecuencias tf = new TFrecuencias();
     
 
@@ -81,6 +83,33 @@ public class FXMLDocumentController implements Initializable {
 
         
     }
+    
+    @FXML 
+        public void cod(){
+            inicio.setVisible(false);
+            decodificar.setVisible(false);
+            codificar.setVisible(true);
+        }
+        
+        @FXML 
+        public void decod(){
+            inicio.setVisible(false);
+            decodificar.setVisible(true);
+            codificar.setVisible(false);
+        }
+        
+        @FXML
+        public void volver(){
+            inicio.setVisible(true);
+            decodificar.setVisible(false);
+            codificar.setVisible(false);
+            tabF.setText("");
+            tabL.setText("");
+            tabLC.setText("");
+            tabC.setText("");
+            tabR.setText("");
+            txtArbol.setText("");
+        }
 
 
     public void TablaF(String[] datos) {
