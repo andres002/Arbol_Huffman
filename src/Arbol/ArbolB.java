@@ -248,4 +248,7 @@ public class ArbolB {
             // System.out.println("insertado");
         }
     }
+    public String[] getCodificaciones(){
+        return tCodificaciones;
+    }
 }

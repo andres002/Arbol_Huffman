@@ -74,7 +74,16 @@ public class FXMLDocumentController implements Initializable {
         co.setArbol(co.getRegistroReemplazo(frecuecias),tf.getTabla());
         txtArbol.setText(co.getArbol());
         txtCo.setText(co.getArbolCo());
+        setCod();
         
+    }
+    public void setCod(){
+        String[] tCodificaciones = co.getCodificaciones();
+        for (int i = 0; i < tCodificaciones.length; i++) {
+            String[] aux =  tCodificaciones[i].split(":");
+            tabLC.setText(tabLC.getText()+aux[0]+"\n");
+            tabC.setText(tabC.getText()+aux[1]+"\n");
+        }
     }
 
     @FXML
@@ -124,26 +133,6 @@ public class FXMLDocumentController implements Initializable {
     } 
         
     
-    
-     
-     /*private void openWindowWithOption(String file) {
-          final SwingNode swingNode = new SwingNode();
-
-        StackPane pane1 = new StackPane();
-        
-
-        JFrame pane = new JFrame("Arbol de Huffman");
-        pane.add(new ArbolGrafico(arD.getReferenciaA()));
-          pane.setSize( 1350, 720 );
-            pane.setVisible( true );
-            pane1.getChildren().add(pane1);
-        Stage stage = new Stage();
-        stage.setTitle("Swing in JavaFX");
-        stage.setScene(new Scene(pane, 250, 150));
-        stage.show();
-       
-       
-    }*/
     
     
     @FXML 
