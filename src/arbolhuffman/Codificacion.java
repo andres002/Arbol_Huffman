@@ -58,11 +58,7 @@ public class Codificacion {
          return  retorno;
     }
     
-    public String[] getCodificaciones(){
-        // recorrer el árbol para obtener codificaciones
-        //guardar codificaciones en arreglo con el formato [letra:frecuencia]
-        return new String[2];
-    }
+
     public void setArbol(String[] tablaA, String[] tablaF){
       //  String[] tablaA = {"1:1:2","1:1:2","1:1:2","1:1:2","2:2:4","2:2:4","2:2:4","3:3:6","3:4:7","4:4:8","4:4:8","6:7:13","8:8:16","13:16:29"};
        // String[] tablaA = {"1:1:2","1:1:2","1:1:2","1:1:2","2:2:4","2:2:4","2:2:4","3:4:7","4:4:8","4:5:9","6:7:13","8:9:17","13:17:30"};
@@ -82,9 +78,18 @@ public class Codificacion {
             ar.setLetra(aux[1], frecuencia);
         }
         
-        ar.recorrer();
+        ar.recorrer(); //saca codificaciones
         ar.preOrder();
         
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String[] getCodificaciones(){
+        
+        return ar.getCodificaciones();
     }
     public String getArbol(){
         return ar.getArbol();
@@ -92,6 +97,9 @@ public class Codificacion {
     public String getArbolCo(){
        return ar.getArbolCodificado(mensaje);
         
+    }
+    public ArbolB getReferenciaA(){
+        return ar;
     }
     
 }

@@ -14,17 +14,7 @@ import static decodificar.DecodificaArbol.datosL;
 
 public class ArbolB {
 
-    class Nodo {
-
-        int dato;
-        String letra = null;
-        int frecuencia;
-        Nodo izq = null, der = null;
-
-        public boolean isLeaf() {
-            return izq == null && der == null;
-        }
-    }
+   
     Nodo raiz;
     boolean encontrado = false;
     Nodo encontradoN;
@@ -41,7 +31,9 @@ public class ArbolB {
     public ArbolB() {
         raiz = null;
     }
-
+    public Nodo getRaiz(){
+        return raiz;
+    }
     private void buscarNodo(Nodo reco, int dato) {
         if (reco != null) {
             if (reco.dato == dato && reco.isLeaf() && !encontrado) {
@@ -257,6 +249,7 @@ public class ArbolB {
             // System.out.println("insertado");
         }
     }
+
     
      public String mensaje() {
         return mensaje(raiz);
@@ -288,6 +281,8 @@ public class ArbolB {
     }
         
    
-          
-    
+    public String[] getCodificaciones(){
+        return tCodificaciones;
+    }
+
 }
