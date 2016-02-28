@@ -93,5 +93,8 @@ public class Codificacion {
        return ar.getArbolCodificado(mensaje);
         
     }
+    public ArbolB getReferenciaA(){
+        return ar;
+    }
     
 }

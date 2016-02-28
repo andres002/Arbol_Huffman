@@ -5,20 +5,35 @@
  */
 package arbolhuffman;
 
+import Arbol.ArbolB;
+import Arbol.ArbolGrafico;
 import decodificar.DecodificaArbol;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import leerArchivo.AllLines;
 
 /**
@@ -35,7 +50,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML TextArea tabF, tabL, tabLC, tabC, tabR,txtArbol,txtCo;
     @FXML AnchorPane codificar, decodificar, inicio;
     TFrecuencias tf = new TFrecuencias();
-    
+    DecodificaArbol arD = new DecodificaArbol();
+    Codificacion co  = new Codificacion();  
+    private volatile boolean isThreadRunning = false;
 
     @FXML
     public void archivo() throws IOException {
@@ -53,7 +70,7 @@ public class FXMLDocumentController implements Initializable {
             TablaF(tf.getTabla());
 
         }
-        Codificacion co = new Codificacion();        
+          
         co.setArbol(co.getRegistroReemplazo(frecuecias),tf.getTabla());
         txtArbol.setText(co.getArbol());
         txtCo.setText(co.getArbolCo());
@@ -75,7 +92,7 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("lineas---" + lineas);
             datos = a.AllLines(lineas);
             //datosL = new String[2];
-            DecodificaArbol arD = new DecodificaArbol();
+            
             arD.decodificador();
             arD.getArbol();
                     
@@ -83,6 +100,51 @@ public class FXMLDocumentController implements Initializable {
 
         
     }
+    @FXML
+    public void showArbol(ActionEvent ev){
+        createAndSetSwingContent(co.getReferenciaA());
+    }
+    
+    @FXML
+    public void showArbolD(ActionEvent ev){
+  
+         createAndSetSwingContent(arD.getReferenciaA());
+     }
+
+     private void createAndSetSwingContent(ArbolB ar) {
+      
+        SwingUtilities.invokeLater(() -> {
+            JFrame pane = new JFrame("Arbol de Huffman");
+            pane.add(new ArbolGrafico(ar));
+            pane.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //para terminar hilo
+            pane.setSize( 1350, 720 );
+            pane.setVisible( true );
+        });
+       
+    } 
+        
+    
+    
+     
+     /*private void openWindowWithOption(String file) {
+          final SwingNode swingNode = new SwingNode();
+
+        StackPane pane1 = new StackPane();
+        
+
+        JFrame pane = new JFrame("Arbol de Huffman");
+        pane.add(new ArbolGrafico(arD.getReferenciaA()));
+          pane.setSize( 1350, 720 );
+            pane.setVisible( true );
+            pane1.getChildren().add(pane1);
+        Stage stage = new Stage();
+        stage.setTitle("Swing in JavaFX");
+        stage.setScene(new Scene(pane, 250, 150));
+        stage.show();
+       
+       
+    }*/
+    
     
     @FXML 
         public void cod(){

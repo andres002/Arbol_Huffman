@@ -6,9 +6,9 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arbolhuffman.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arbolhuffman.FXMLDocumentController">
    <children>
-      <AnchorPane fx:id="codificar" prefHeight="492.0" prefWidth="720.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="codificar" prefHeight="518.0" prefWidth="730.0" visible="false" AnchorPane.bottomAnchor="-16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <menus>
@@ -47,7 +47,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <TextArea fx:id="txtCo" editable="false" layoutX="22.0" layoutY="403.0" prefHeight="53.0" prefWidth="682.0" wrapText="true" />
+            <TextArea fx:id="txtCo" editable="false" layoutX="22.0" layoutY="403.0" prefHeight="70.0" prefWidth="682.0" wrapText="true" />
             <Text layoutX="291.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código del Árbol">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -64,7 +64,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Button layoutX="328.0" layoutY="467.0" mnemonicParsing="false" onAction="#volver" prefHeight="25.0" prefWidth="117.0" text="Volver" />
+            <Button layoutX="300.0" layoutY="481.0" mnemonicParsing="false" onAction="#volver" prefHeight="25.0" prefWidth="117.0" text="Volver" />
+            <Button layoutX="468.0" layoutY="481.0" mnemonicParsing="false" onAction="#showArbol" text="Ver ábol gráfico" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="inicio" prefHeight="502.0" prefWidth="730.0">
@@ -125,7 +126,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Button layoutX="289.0" layoutY="469.0" mnemonicParsing="false" onAction="#volver" prefHeight="25.0" prefWidth="96.0" text="Volver" />
+            <Button layoutX="289.0" layoutY="476.0" mnemonicParsing="false" onAction="#volver" prefHeight="25.0" prefWidth="96.0" text="Volver" />
+            <Button layoutX="408.0" layoutY="481.0" mnemonicParsing="false" onAction="#showArbolD" text="Ver ábol gráfico" />
          </children>
       </AnchorPane>
    </children>

@@ -22,7 +22,7 @@ public class DecodificaArbol {
     
     static String[] datosL;
     
-    
+    ArbolB a;
     public void decodificador(){
         String reco = "";
         for(int x = 0; x < datos.length; x++){
@@ -34,8 +34,11 @@ public class DecodificaArbol {
     }
   
     public void getArbol(){
-        ArbolB a = new ArbolB();
+        a = new ArbolB();
         a.leerCodificado(datosL[0]);
+    }
+    public ArbolB getReferenciaA(){
+        return a;
     }
     
 }
