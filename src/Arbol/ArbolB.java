@@ -264,17 +264,24 @@ public class ArbolB {
 
     public String mensaje(Nodo reco) {
         String mensaje="";
-        for (int i = 0; i < datosL.length; i++) {
-            char c = datosL[1].charAt(i);
+        String enc = datosL[1];
+        int letras = 0;
+        System.out.println("length   " + enc.length());
+        while (letras < enc.length()) {
             while (!reco.isLeaf()) {
+                char c = enc.charAt(letras);
                 if (c == '0') {
+                    System.out.println("izq");
                     reco = reco.izq;
                 }
                 if (c == '1') {
-                    mensaje(reco.der);
+                    reco = reco.der;
+                    System.out.println("der");
                 }
+                letras ++;
             }
             mensaje += reco.letra;
+            System.out.println("letra  " + reco.letra);
             reco = raiz;
         }
         return mensaje;

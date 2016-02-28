@@ -67,7 +67,7 @@
             <Button layoutX="328.0" layoutY="467.0" mnemonicParsing="false" onAction="#volver" prefHeight="25.0" prefWidth="117.0" text="Volver" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="inicio" prefHeight="502.0" prefWidth="730.0" visible="false">
+      <AnchorPane fx:id="inicio" prefHeight="502.0" prefWidth="730.0">
          <children>
             <Button layoutX="405.0" layoutY="188.0" mnemonicParsing="false" onAction="#decod" prefHeight="53.0" prefWidth="163.0" text="Decodificar">
                <font>
@@ -86,7 +86,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="decodificar" prefHeight="502.0" prefWidth="730.0">
+      <AnchorPane fx:id="decodificar" prefHeight="502.0" prefWidth="730.0" visible="false">
          <children>
             <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <menus>
