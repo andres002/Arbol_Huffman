@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package decodificar;
+import Arbol.ArbolB;
 import java.io.File;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -27,7 +28,14 @@ public class DecodificaArbol {
         for(int x = 0; x < datos.length; x++){
             reco = datos[x];
         }
+        System.out.println("reco "+reco);
         datosL= reco.split("11000001");
+        
+    }
+  
+    public void getArbol(){
+        ArbolB a = new ArbolB();
+        a.leerCodificado(datosL[0]);
     }
     
 }

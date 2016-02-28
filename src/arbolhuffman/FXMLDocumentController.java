@@ -5,6 +5,7 @@
  */
 package arbolhuffman;
 
+import decodificar.DecodificaArbol;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -50,15 +51,9 @@ public class FXMLDocumentController implements Initializable {
             TablaF(tf.getTabla());
 
         }
-        Codificacion co = new Codificacion();
-        
+        Codificacion co = new Codificacion();        
         co.setArbol(co.getRegistroReemplazo(frecuecias),tf.getTabla());
-        
-
         txtArbol.setText(co.getArbol());
-       
-
-
     }
 
     @FXML
@@ -76,7 +71,10 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("lineas---" + lineas);
             datos = a.AllLines(lineas);
             //datosL = new String[2];
-
+            DecodificaArbol arD = new DecodificaArbol();
+            arD.decodificador();
+            arD.getArbol();
+                    
         }
 
         
