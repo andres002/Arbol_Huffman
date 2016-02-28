@@ -6,7 +6,7 @@
 package arbolhuffman;
 
 import Arbol.ArbolB;
-
+import static arbolhuffman.FXMLDocumentController.mensaje;
 /**
  *
  * @author Javier
@@ -84,10 +84,14 @@ public class Codificacion {
         
         ar.recorrer();
         ar.preOrder();
-        System.out.println(ar.getArbolCodificado());
+        
     }
     public String getArbol(){
         return ar.getArbol();
+    }
+    public String getArbolCo(){
+       return ar.getArbolCodificado(mensaje);
+        
     }
     
 }

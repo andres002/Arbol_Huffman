@@ -26,13 +26,13 @@ import leerArchivo.AllLines;
  * @author Javier
  */
 public class FXMLDocumentController implements Initializable {
-
+    public static String mensaje;
     public static String[] datos;
     @FXML
     private File files;
     private Stage stage;
     int[] frecuecias;
-    @FXML TextArea tabF, tabL, tabLC, tabC, tabR,txtArbol;
+    @FXML TextArea tabF, tabL, tabLC, tabC, tabR,txtArbol,txtCo;
     @FXML AnchorPane codificar, decodificar, inicio;
     TFrecuencias tf = new TFrecuencias();
     
@@ -56,6 +56,8 @@ public class FXMLDocumentController implements Initializable {
         Codificacion co = new Codificacion();        
         co.setArbol(co.getRegistroReemplazo(frecuecias),tf.getTabla());
         txtArbol.setText(co.getArbol());
+        txtCo.setText(co.getArbolCo());
+        
     }
 
     @FXML

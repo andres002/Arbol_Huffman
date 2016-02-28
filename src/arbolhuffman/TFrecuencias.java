@@ -2,7 +2,7 @@ package arbolhuffman;
 
 import java.io.*;
 import java.util.*;
-
+import static arbolhuffman.FXMLDocumentController.mensaje;
 /**
  *
  * @author Josseline
@@ -20,6 +20,7 @@ public class TFrecuencias {
         while ((cadena = b.readLine()) != null) {
             cadena=cadena.toLowerCase();
             this.texto = cadena;
+            mensaje = cadena;
         }
         b.close();
     }

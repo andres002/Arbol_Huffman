@@ -149,6 +149,8 @@ public class ArbolB {
     public String getArbol() {
         return arbol;
     }
+  
+   
 
     public void insertar(int dato, int datoIzq, int datoDer) {
         Nodo nuevo = new Nodo();
@@ -214,11 +216,20 @@ public class ArbolB {
     private void setArbolC(String letra) {
         aCodificado += getBinario(letra);
     }
+      public String codificarMensaje(String mensaje){
+        for (int i = 0; i < tCodificaciones.length; i++) {
+            String[] aux =  tCodificaciones[i].split(":");
+            mensaje = mensaje.replace(aux[0], aux[1]);
+            System.out.println("replace"+aux[0]+"por "+aux[1]);
+        }
+        return mensaje;
+    }
 
-    public String getArbolCodificado() {
+    public String getArbolCodificado(String mensaje) {
         cont = 0;
         recorrer(raiz);
-        return aCodificado;
+        preOrder();
+        return aCodificado+"11000001"+codificarMensaje(mensaje);
     }
 
     private String getBinario(String a) {
