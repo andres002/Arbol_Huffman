@@ -10,6 +10,7 @@ package Arbol;
  * @author Javier
  */
 import static arbolhuffman.TFrecuencias.Numdatos;
+import static decodificar.DecodificaArbol.datosL;
 
 public class ArbolB {
 
@@ -256,4 +257,30 @@ public class ArbolB {
             // System.out.println("insertado");
         }
     }
+    
+     public String mensaje() {
+        return mensaje(raiz);
+    }
+
+    public String mensaje(Nodo reco) {
+        String mensaje="";
+        for (int i = 0; i < datosL.length; i++) {
+            char c = datosL[1].charAt(i);
+            while (!reco.isLeaf()) {
+                if (c == '0') {
+                    reco = reco.izq;
+                }
+                if (c == '1') {
+                    mensaje(reco.der);
+                }
+            }
+            mensaje += reco.letra;
+            reco = raiz;
+        }
+        return mensaje;
+    }
+        
+   
+          
+    
 }

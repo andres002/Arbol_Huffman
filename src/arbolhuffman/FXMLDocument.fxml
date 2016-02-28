@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arbolhuffman.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arbolhuffman.FXMLDocumentController">
    <children>
       <AnchorPane fx:id="codificar" prefHeight="492.0" prefWidth="720.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -67,7 +67,7 @@
             <Button layoutX="328.0" layoutY="467.0" mnemonicParsing="false" onAction="#volver" prefHeight="25.0" prefWidth="117.0" text="Volver" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="inicio" prefHeight="502.0" prefWidth="730.0">
+      <AnchorPane fx:id="inicio" prefHeight="502.0" prefWidth="730.0" visible="false">
          <children>
             <Button layoutX="405.0" layoutY="188.0" mnemonicParsing="false" onAction="#decod" prefHeight="53.0" prefWidth="163.0" text="Decodificar">
                <font>
@@ -86,7 +86,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="decodificar" prefHeight="502.0" prefWidth="730.0" visible="false">
+      <AnchorPane fx:id="decodificar" prefHeight="502.0" prefWidth="730.0">
          <children>
             <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <menus>
@@ -108,7 +108,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <TextArea editable="false" layoutX="18.0" layoutY="274.0" prefHeight="185.0" prefWidth="542.0" wrapText="true" />
+            <TextArea fx:id="mensajeArbol" editable="false" layoutX="18.0" layoutY="274.0" prefHeight="185.0" prefWidth="542.0" wrapText="true" />
             <Text layoutX="265.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código del Árbol">
                <font>
                   <Font name="System Bold" size="12.0" />

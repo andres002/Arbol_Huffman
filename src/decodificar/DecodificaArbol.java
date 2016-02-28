@@ -10,6 +10,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import leerArchivo.AllLines;
 import static arbolhuffman.FXMLDocumentController.datos;
+import static arbolhuffman.FXMLDocumentController.mensajeDecodi;
 
 /**
  *
@@ -20,7 +21,7 @@ public class DecodificaArbol {
     private File files;
     private Stage stage;
     
-    static String[] datosL;
+    public static String[] datosL;
     
     
     public void decodificador(){
@@ -36,6 +37,7 @@ public class DecodificaArbol {
     public void getArbol(){
         ArbolB a = new ArbolB();
         a.leerCodificado(datosL[0]);
+       mensajeDecodi = a.mensaje();
     }
     
 }
