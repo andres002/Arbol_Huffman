@@ -53,7 +53,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <TextArea fx:id="tabLC" editable="false" layoutX="589.0" layoutY="81.0" prefHeight="207.0" prefWidth="39.0" />
+            <TextArea fx:id="tabLC" editable="false" layoutX="589.0" layoutY="81.0" prefHeight="207.0" prefWidth="39.0" visible="false" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a8a8a8" height="17.0" layoutX="589.0" layoutY="58.0" stroke="#ffffff00" strokeType="INSIDE" width="41.0" />
             <Text fill="WHITE" layoutX="596.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Letra" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a8a8a8" height="17.0" layoutX="634.0" layoutY="58.0" stroke="#ffffff00" strokeType="INSIDE" width="67.0" />
@@ -115,12 +115,12 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <TextArea editable="false" layoutX="582.0" layoutY="80.0" prefHeight="380.0" prefWidth="41.0" />
+            <TextArea fx:id="tabLC2" editable="false" layoutX="582.0" layoutY="80.0" prefHeight="380.0" prefWidth="41.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a8a8a8" height="17.0" layoutX="582.0" layoutY="57.0" stroke="#ffffff00" strokeType="INSIDE" width="41.0" />
             <Text fill="WHITE" layoutX="589.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Letra" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a8a8a8" height="17.0" layoutX="627.0" layoutY="57.0" stroke="#ffffff00" strokeType="INSIDE" width="67.0" />
             <Text fill="WHITE" layoutX="634.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código" />
-            <TextArea editable="false" layoutX="627.0" layoutY="80.0" prefHeight="380.0" prefWidth="67.0" />
+            <TextArea fx:id="tabC2" editable="false" layoutX="627.0" layoutY="80.0" prefHeight="380.0" prefWidth="67.0" />
             <Text layoutX="574.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tabla de Codificación">
                <font>
                   <Font name="System Bold" size="12.0" />
