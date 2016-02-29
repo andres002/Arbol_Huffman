@@ -31,6 +31,7 @@ public class DecodificaArbol {
         }
         System.out.println("reco "+reco);
         datosL= reco.split("11000001");
+        System.out.println("Length"+datosL.length);
         
     }
   

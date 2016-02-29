@@ -134,6 +134,7 @@ public class ArbolB {
     }
 
     public void preOrder() {
+        aCodificado = "";
         preOrder(raiz);
         System.out.println();
         System.out.println(arbol);
