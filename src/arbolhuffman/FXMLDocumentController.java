@@ -48,7 +48,7 @@ public class FXMLDocumentController implements Initializable {
     private File files;
     private Stage stage;
     int[] frecuecias;
-    @FXML TextArea tabF, tabL, tabLC, tabC, tabR,txtArbol,txtCo, mensajeArbol;
+    @FXML TextArea tabF, tabL, tabLC, tabC, tabR,txtArbol,txtCo, mensajeArbol,tabLC2,tabC2;
     @FXML AnchorPane codificar, decodificar, inicio;
     TFrecuencias tf = new TFrecuencias();
     DecodificaArbol arD = new DecodificaArbol();
@@ -105,7 +105,15 @@ public class FXMLDocumentController implements Initializable {
             
             arD.decodificador();
             arD.getArbol();
-            mensajeArbol.setText(mensajeDecodi);    
+            String[] tCodificaciones = arD.getCodificaciones();
+            mensajeArbol.setText(mensajeDecodi); 
+            System.out.println("tCodificacioneeeeeeeees  " + tCodificaciones.length);
+            for (int i = 0; i < tCodificaciones.length; i++) {
+                System.out.println("i   " + i);
+                String[] aux =  tCodificaciones[i].split(":");
+                tabLC2.setText(tabLC2.getText()+aux[0]+"\n");
+                tabC2.setText(tabC2.getText()+aux[1]+"\n");
+            }
                     
         }
 

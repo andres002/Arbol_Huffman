@@ -51,6 +51,7 @@ public class ArbolB {
     }
 
     public void leerCodificado(String codigo) {
+        Numdatos = 0;
         codigoDes = codigo;
         raiz = null;
         if (getBit().equals("0")) {
@@ -209,6 +210,7 @@ public class ArbolB {
 
     private void setArbolC(String letra) {
         aCodificado += getBinario(letra);
+        Numdatos++;
     }
       public String codificarMensaje(String mensaje){
         for (int i = 0; i < tCodificaciones.length; i++) {
