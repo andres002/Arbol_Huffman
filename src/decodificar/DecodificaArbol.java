@@ -30,11 +30,11 @@ public class DecodificaArbol {
             reco = datos[x];
         }
         System.out.println("reco "+reco);
-        datosL= reco.split("11000001");
+        datosL= reco.replaceFirst("11000001", ":").split(":");
         System.out.println("Length"+datosL.length);
         
     }
-  
+
     public void getArbol(){
         a.leerCodificado(datosL[0]);
        mensajeDecodi = a.mensaje();
