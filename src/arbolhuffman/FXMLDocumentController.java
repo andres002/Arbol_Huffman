@@ -52,7 +52,7 @@ public class FXMLDocumentController implements Initializable {
     private Stage stage;
     int[] frecuecias;
     @FXML
-    TextArea tabF, tabL, tabLC, tabC, tabR, txtArbol, txtCo, mensajeArbol, tabLC2, tabC2;
+    TextArea tabF, tabL, tabLC, tabC, tabR, txtArbol, txtAr1, txtCo, mensajeArbol, tabLC2, tabC2;
     @FXML
     AnchorPane codificar, decodificar, inicio;
     TFrecuencias tf = new TFrecuencias();
@@ -159,6 +159,7 @@ public class FXMLDocumentController implements Initializable {
                 tabLC2.setText(tabLC2.getText() + aux[0] + "\n");
                 tabC2.setText(tabC2.getText() + aux[1] + "\n");
             }
+            txtAr1.setText(arD.getReferenciaA().getArbol());
 
         }
 

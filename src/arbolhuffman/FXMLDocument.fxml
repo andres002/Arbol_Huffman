@@ -105,7 +105,7 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <TextArea editable="false" layoutX="18.0" layoutY="83.0" prefHeight="138.0" prefWidth="542.0" wrapText="true" />
+            <TextArea fx:id="txtAr1" editable="false" layoutX="18.0" layoutY="83.0" prefHeight="138.0" prefWidth="542.0" wrapText="true" />
             <Text layoutX="241.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Representación del Árbol">
                <font>
                   <Font name="System Bold" size="12.0" />
