@@ -102,9 +102,6 @@ public class FXMLDocumentController implements Initializable {
             FileWriter fw = null;
             BufferedWriter bw = null;
             try {
-					// EL segundo parametro es un boolean
-                // En true escribe al final
-                // En false escribe al inicio
                 fw = new FileWriter(file, false);
                 bw = new BufferedWriter(fw);
 
@@ -214,6 +211,10 @@ public class FXMLDocumentController implements Initializable {
         tabR.setText("");
         txtArbol.setText("");
         txtCo.setText("");
+        txtAr1.setText("");
+        mensajeArbol.setText(""); 
+        tabLC2.setText(""); 
+        tabC2.setText("");
     }
 
     public void TablaF(String[] datos) {
