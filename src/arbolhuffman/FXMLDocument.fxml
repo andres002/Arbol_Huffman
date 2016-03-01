@@ -6,9 +6,9 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arbolhuffman.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arbolhuffman.FXMLDocumentController">
    <children>
-      <AnchorPane fx:id="codificar" prefHeight="518.0" prefWidth="730.0" visible="false" AnchorPane.bottomAnchor="-16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="codificar" prefHeight="529.0" prefWidth="730.0" visible="false" AnchorPane.bottomAnchor="-23.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <menus>
@@ -66,6 +66,8 @@
             </Text>
             <Button layoutX="300.0" layoutY="481.0" mnemonicParsing="false" onAction="#volver" prefHeight="25.0" prefWidth="117.0" text="Volver" />
             <Button layoutX="468.0" layoutY="481.0" mnemonicParsing="false" onAction="#showArbol" text="Ver ábol gráfico" />
+            <Button layoutX="596.0" layoutY="481.0" mnemonicParsing="false" onAction="#guardar" text="Guardar Código" />
+            <TextArea fx:id="tabLC" editable="false" layoutX="589.0" layoutY="81.0" prefHeight="207.0" prefWidth="39.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="inicio" prefHeight="502.0" prefWidth="730.0">

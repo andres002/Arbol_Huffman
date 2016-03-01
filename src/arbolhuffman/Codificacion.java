@@ -12,6 +12,7 @@ import static arbolhuffman.FXMLDocumentController.mensaje;
  * @author Javier
  */
 public class Codificacion {
+    public String retorno [];
     ArbolB ar = new ArbolB();
     String[] datos;
     public void setDatos(String[] datos){
@@ -28,7 +29,7 @@ public class Codificacion {
          Ordenar d = new Ordenar();
         boolean band = true;
         int operaciones = 0;
-        String retorno [] = new String[tablaFrecuencias.length-1];
+        retorno = new String[tablaFrecuencias.length-1];
 	tablaFrecuencias = d.burbuja(tablaFrecuencias);
 	int auxiliar [] = new int[tablaFrecuencias.length];
         while (band) {
@@ -54,8 +55,12 @@ public class Codificacion {
 		
 			
 		}
-       
+        
          return  retorno;
+    }
+    
+    public String[] getRetornoTR(){
+        return retorno;
     }
     
 
