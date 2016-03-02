@@ -11,6 +11,8 @@ package Arbol;
  */
 import static arbolhuffman.TFrecuencias.Numdatos;
 import static decodificar.DecodificaArbol.datosL;
+import java.util.ArrayList;
+import javafx.collections.ObservableList;
 
 public class ArbolB {
 
@@ -68,6 +70,10 @@ public class ArbolB {
     public String getLetra(){
         String aux = (char)Integer.parseInt(codigoDes.substring(0, 8), 2) + "";
         codigoDes = codigoDes.substring(8);
+        if(codigoDes.substring(0,8).equals("11000001")){
+            datosL[1] = codigoDes.substring(8);
+            codigoDes = "";
+        }
         return aux;
         
     }
@@ -116,7 +122,13 @@ public class ArbolB {
             if (!reco.isLeaf()) {
                 aCodificado += "0";
             }
-
+            arbol += "( ";
+            if(reco.isLeaf()){
+                arbol += 1 ;
+                arbol += "--"+reco.letra;
+            }else{
+                arbol += 0 + " ";
+            }
             System.out.print(reco.dato);
             if (reco.letra != null) {
                 aCodificado += "1";
@@ -124,9 +136,9 @@ public class ArbolB {
                 setArbolC(reco.letra);
                 System.out.print("--- " + reco.letra);
             }
-            arbol += "( ";
-            arbol += reco.dato + " ";
-
+            
+            //arbol += reco.dato + " ";
+            
             System.out.println("");
             preOrder(reco.izq);
             preOrder(reco.der);
@@ -213,19 +225,29 @@ public class ArbolB {
         Numdatos++;
     }
       public String codificarMensaje(String mensaje){
-        for (int i = 0; i < tCodificaciones.length; i++) {
-            String[] aux =  tCodificaciones[i].split(":");
-            mensaje = mensaje.replace(aux[0], aux[1]);
-            System.out.println("replace"+aux[0]+"por "+aux[1]);
-        }
-        return mensaje;
+              String codigo = "";
+          for (int k = 0; k < mensaje.length(); k++) {
+              String a  = mensaje.charAt(k)+"";
+
+              for (int i = 0; i < tCodificaciones.length; i++) {
+                String[] aux =  tCodificaciones[i].split(":");
+                
+                if(a.equals(aux[0]) ){
+                    codigo += aux[1];
+                }
+            }
+          }
+        
+        return codigo;
     }
 
     public String getArbolCodificado(String mensaje) {
         cont = 0;
         recorrer(raiz);
         preOrder();
-        return aCodificado+"11000001"+codificarMensaje(mensaje);
+       String aux = codificarMensaje(mensaje);
+        System.out.println("El mensaje es:"+aux);
+        return aCodificado+"11000001"+aux;
     }
 
     private String getBinario(String a) {
@@ -260,6 +282,7 @@ public class ArbolB {
 
     public String mensaje(Nodo reco) {
         String mensaje="";
+        System.out.println("El mensaje es:"+datosL[1]);
         String enc = datosL[1];
         int letras = 0;
         System.out.println("length   " + enc.length());

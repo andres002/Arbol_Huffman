@@ -15,13 +15,16 @@ public class TFrecuencias {
 
     public void leerArchivo(String archivo) throws FileNotFoundException, IOException {
         String cadena;
+        texto = "";
+        mensaje = "";
         FileReader f = new FileReader(archivo);
         BufferedReader b = new BufferedReader(f);
         while ((cadena = b.readLine()) != null) {
-            cadena=cadena.toLowerCase();
-            this.texto = cadena;
-            mensaje = cadena;
+            //cadena=cadena.toLowerCase();
+            this.texto += cadena;
+            mensaje += cadena;
         }
+        System.out.println(mensaje);
         b.close();
     }
 

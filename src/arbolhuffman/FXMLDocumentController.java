@@ -35,6 +35,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import leerArchivo.AllLines;
 
@@ -176,11 +177,13 @@ public class FXMLDocumentController implements Initializable {
     private void createAndSetSwingContent(ArbolB ar) {
 
         SwingUtilities.invokeLater(() -> {
+            
             JFrame pane = new JFrame("Arbol de Huffman");
             pane.add(new ArbolGrafico(ar));
             pane.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //para terminar hilo
-            pane.setSize(1350, 720);
+            pane.setSize(1700, 720);
             pane.setVisible(true);
+           
         });
 
     }
@@ -227,6 +230,7 @@ public class FXMLDocumentController implements Initializable {
             tabF.setText(tabF.getText() + p1 + "\n");
             System.out.println(p2);
             tabL.setText(tabL.getText() + p2 + "\n");
+            System.out.println("letra: "+p2+" frec: "+p1);
         }
 
     }
