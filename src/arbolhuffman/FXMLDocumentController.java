@@ -60,6 +60,11 @@ public class FXMLDocumentController implements Initializable {
     DecodificaArbol arD = new DecodificaArbol();
     Codificacion co = new Codificacion();
     private volatile boolean isThreadRunning = false;
+    @FXML
+    private void generar(){
+        mensaje = txtArbol.getText();
+          txtCo.setText(co.getArbolCo());
+    }
 
     @FXML
     public void archivo() throws IOException {
@@ -79,8 +84,8 @@ public class FXMLDocumentController implements Initializable {
         }
 
         co.setArbol(co.getRegistroReemplazo(frecuecias), tf.getTabla());
-        txtArbol.setText(co.getArbol());
-        txtCo.setText(co.getArbolCo());
+     
+      
         TablaR(co.getRetornoTR());
         setCod();
 
