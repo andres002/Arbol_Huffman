@@ -32,6 +32,9 @@ public class Codificacion {
         retorno = new String[tablaFrecuencias.length-1];
 	tablaFrecuencias = d.burbuja(tablaFrecuencias);
 	int auxiliar [] = new int[tablaFrecuencias.length];
+        boolean primeros = true;
+        String[] aux = new String[tablaFrecuencias.length+1];
+        int i= 3;
         while (band) {
 			tablaFrecuencias=d.burbuja(tablaFrecuencias);
 			int a = tablaFrecuencias[operaciones];
@@ -42,12 +45,22 @@ public class Codificacion {
 		
 			int suma = a+b;
 			 String z = String.valueOf(suma);
-			 String union = x+":"+y+":"+z;
+			 String union = y+":"+x+":"+z;
+                         if(primeros){
+                             primeros = false;
+                             aux[0] = x;
+                            aux[1] = y;
+                             aux[2] = z;
+                             i = 3;
+                         }else{
+                             aux[i]= z;
+                             i++;
+                         }
 			 retorno[operaciones]=union;
 		
 			auxiliar[operaciones]=suma;
 			tablaFrecuencias[0]=suma;
-		
+                        retorno[operaciones]=union;
 			operaciones++;
 			if(operaciones==tablaFrecuencias.length-1){
 				band=false;
@@ -55,7 +68,9 @@ public class Codificacion {
 		
 			
 		}
-        
+      /*  String[] aux1 = retorno[retorno.length-1].split(":");
+        retorno[retorno.length-1] = aux1[1] +":"+ aux1[0]+":"+aux[2];
+    */
          return  retorno;
     }
     

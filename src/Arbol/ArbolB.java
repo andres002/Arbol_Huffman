@@ -45,10 +45,10 @@ public class ArbolB {
             if (reco.dato == dato && reco.isLeaf() && reco.letra == null) {
                 encontradoNL = reco;
             }
+             buscarNodo(reco.der, dato);
 
             buscarNodo(reco.izq, dato);
-            buscarNodo(reco.der, dato);
-
+           
         }
     }
 
