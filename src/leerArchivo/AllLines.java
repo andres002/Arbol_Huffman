@@ -12,9 +12,6 @@ public class AllLines{
 		this.name = name;
 
 	}
-/*
-Prueba de Git ...........
-*/	
 
 	public static String [] AllLines(int numlines){
             System.out.println("numero de lineas---" + numlines);
